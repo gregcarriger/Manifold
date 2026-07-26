@@ -58,13 +58,10 @@ guidance wrong.
 ## Architecture
 
 ```mermaid
+%%{init: {'flowchart': {'rankSpacing': 25}}}%%
 flowchart LR
     subgraph Sources
-      direction TB
-      N[NIST SP 800-82r3]
-      C[CISA ICS advisories]
-      M[MITRE ATT&CK ICS]
-      I[IEC 62443 - licensed, optional]
+      N[NIST SP 800-82r3] ~~~ C[CISA ICS advisories] ~~~ M[MITRE ATT&CK ICS] ~~~ I[IEC 62443 - licensed, optional]
     end
     Sources --> ING[Ingest + normalize<br/>unified Document schema]
     ING --> CH[Chunking<br/>fixed vs structure-aware]
