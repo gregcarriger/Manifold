@@ -60,6 +60,7 @@ guidance wrong.
 ```mermaid
 flowchart LR
     subgraph Sources
+      direction TB
       N[NIST SP 800-82r3]
       C[CISA ICS advisories]
       M[MITRE ATT&CK ICS]
