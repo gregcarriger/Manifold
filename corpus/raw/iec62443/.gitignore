@@ -1,0 +1,6 @@
+# IEC 62443 standards are copyrighted (IEC/ISA paywalled).
+# Licensed copies may be dropped here locally but MUST NOT be committed.
+*
+!.gitignore
+!README.md
+!manifest.template.json

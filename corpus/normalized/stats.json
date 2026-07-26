@@ -1,0 +1,23 @@
+{
+  "documents": 4314,
+  "per_source": {
+    "nist": 273,
+    "cisa": 3829,
+    "mitre": 212
+  },
+  "by_doc_type": {
+    "standard_section": 273,
+    "advisory": 3829,
+    "mitigation": 52,
+    "software": 23,
+    "technique": 97,
+    "asset": 18,
+    "campaign": 8,
+    "group": 14
+  },
+  "tokens_est_total": 4824534,
+  "tokens_est_mean": 1118.3,
+  "tokens_est_min": 19,
+  "tokens_est_max": 92580,
+  "duplicate_doc_ids": 0
+}

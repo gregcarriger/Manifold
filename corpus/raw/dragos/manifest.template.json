@@ -1,0 +1,8 @@
+{
+  "_comment": "OPTIONAL. Copy this file to manifest.json to record provenance for the Dragos WorldView data you have placed under this directory. The loader works without a manifest (it auto-discovers report bundles under reports/), but a manifest lets you record which WorldView perspective the export was scoped to and when it was pulled. manifest.json is git-ignored and will never be committed.",
+  "license_attestation": "I attest that my organization holds a valid Dragos WorldView subscription and that this data is used only for local, private evaluation. It is not redistributed.",
+  "perspective": "Manufacturing",
+  "pulled_at": "2026-07-23",
+  "source": "https://portal.dragos.com/#/products",
+  "_notes": "Report bundles: drop each product's files into reports/. A bundle is grouped by its serial prefix (e.g. AIR-2026-14) and may contain a narrative PDF, a *.stix2.json bundle, and a *-IOCs-*.csv. PDF-only products are fine. Future WorldView exports (Vulnerabilities, Threat Groups) can be added under vulnerabilities/ and threat_groups/ subdirectories."
+}

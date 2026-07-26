@@ -1,0 +1,27 @@
+# Postgres + pgvector for Manifold's vector store.
+#
+# Only the stateful, awkward-to-install piece runs in Docker; the Python/embedding
+# pipeline runs on the host (Metal-accelerated on Apple Silicon). Bring it up with:
+#     docker compose up -d
+# Connection string (see .env.example):
+#     postgresql://manifold:manifold@localhost:5433/manifold
+services:
+  db:
+    image: pgvector/pgvector:pg17
+    container_name: manifold-pgvector
+    environment:
+      POSTGRES_USER: manifold
+      POSTGRES_PASSWORD: manifold
+      POSTGRES_DB: manifold
+    ports:
+      - "5433:5432"   # host 5433 to avoid clashing with a local Postgres on 5432
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U manifold -d manifold"]
+      interval: 3s
+      timeout: 3s
+      retries: 10
+
+volumes:
+  pgdata:

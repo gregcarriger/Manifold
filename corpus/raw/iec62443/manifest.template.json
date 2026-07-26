@@ -1,0 +1,20 @@
+{
+  "_comment": "Copy this file to manifest.json and fill in one entry per licensed IEC 62443 PDF you have placed in this directory. manifest.json is git-ignored and will never be committed. The ingestion pipeline auto-detects manifest.json and loads only the files it lists.",
+  "license_attestation": "I attest that I hold a valid license to the IEC 62443 documents listed below and am using them only for local, private evaluation. They are not redistributed.",
+  "documents": [
+    {
+      "part": "IEC 62443-3-3",
+      "title": "System security requirements and security levels",
+      "edition": "1.0",
+      "year": 2013,
+      "filename": "IEC_62443-3-3.pdf"
+    },
+    {
+      "part": "IEC 62443-4-2",
+      "title": "Technical security requirements for IACS components",
+      "edition": "1.0",
+      "year": 2019,
+      "filename": "IEC_62443-4-2.pdf"
+    }
+  ]
+}
