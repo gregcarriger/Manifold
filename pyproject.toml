@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "manifold-rag"
+version = "0.1.0"
+description = "A retrieval benchmark and grounded-RAG pipeline for OT/ICS security documentation."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "Greg Carriger" }]
+dependencies = [
+    "pypdf>=5.0",
+]
+
+[project.optional-dependencies]
+# Heavier stages installed as we reach them (embeddings, vector store, eval).
+retrieval = [
+    "rank-bm25>=0.2.2",
+    "sentence-transformers>=3.0",
+    "psycopg[binary]>=3.2",
+    "pgvector>=0.3",
+]
+eval = [
+    "pytrec-eval-terrier>=0.5",
+    "anthropic>=0.40",
+]
+dev = ["pytest>=8.0", "ruff>=0.6"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100

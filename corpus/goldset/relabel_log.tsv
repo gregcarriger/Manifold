@@ -1,0 +1,96 @@
+2026-07-24T16:48:15	q001	cisa:ICSA-22-256-02	1	0	boilerplate FP (zero distinctive overlap; auto-flagged)
+2026-07-24T16:48:15	q002	cisa:ICSA-18-352-04	1	0	boilerplate FP (zero distinctive overlap; auto-flagged)
+2026-07-24T16:48:15	q005	cisa:ICSA-19-106-01	1	0	boilerplate FP (zero distinctive overlap; auto-flagged)
+2026-07-24T16:48:15	q005	cisa:ICSA-22-256-02	1	0	boilerplate FP (zero distinctive overlap; auto-flagged)
+2026-07-24T16:48:15	q005	cisa:ICSA-25-016-02	1	0	boilerplate FP (zero distinctive overlap; auto-flagged)
+2026-07-24T16:48:15	q005	cisa:ICSA-26-111-11	1	0	boilerplate FP (zero distinctive overlap; auto-flagged)
+2026-07-24T16:48:15	q011	cisa:ICSA-15-099-01E	1	0	boilerplate FP (zero distinctive overlap; auto-flagged)
+2026-07-24T16:48:15	q015	cisa:ICSA-24-254-02	1	0	boilerplate FP (zero distinctive overlap; auto-flagged)
+2026-07-24T16:48:15	q015	cisa:ICSA-25-016-02	1	0	boilerplate FP (zero distinctive overlap; auto-flagged)
+2026-07-24T16:48:15	q015	cisa:ICSA-25-352-06	1	0	boilerplate FP (zero distinctive overlap; auto-flagged)
+2026-07-24T16:48:15	q019	cisa:ICSA-24-319-14	1	0	boilerplate FP (zero distinctive overlap; auto-flagged)
+2026-07-24T16:48:15	q032	cisa:ICSA-25-240-05	1	0	boilerplate FP (zero distinctive overlap; auto-flagged)
+2026-07-24T16:48:15	q041	cisa:ICSA-13-011-03	1	0	boilerplate FP (zero distinctive overlap; auto-flagged)
+2026-07-24T16:48:15	q041	cisa:ICSA-23-068-05	1	0	boilerplate FP (zero distinctive overlap; auto-flagged)
+2026-07-24T16:48:15	q041	cisa:ICSA-24-256-11	1	0	boilerplate FP (zero distinctive overlap; auto-flagged)
+2026-07-24T16:48:15	q041	cisa:ICSA-25-063-03	1	0	boilerplate FP (zero distinctive overlap; auto-flagged)
+2026-07-24T16:48:15	q041	cisa:ICSA-25-100-04	1	0	boilerplate FP (zero distinctive overlap; auto-flagged)
+2026-07-24T16:48:15	q041	cisa:ICSA-25-133-02	1	0	boilerplate FP (zero distinctive overlap; auto-flagged)
+2026-07-24T16:48:15	q041	cisa:ICSA-25-184-01	1	0	boilerplate FP (zero distinctive overlap; auto-flagged)
+2026-07-24T16:48:15	q041	cisa:ICSA-25-289-11	1	0	boilerplate FP (zero distinctive overlap; auto-flagged)
+2026-07-24T16:48:15	q041	cisa:ICSA-26-015-08	1	0	boilerplate FP (zero distinctive overlap; auto-flagged)
+2026-07-24T16:48:15	q041	cisa:ICSA-26-015-09	1	0	boilerplate FP (zero distinctive overlap; auto-flagged)
+2026-07-24T16:48:15	q041	cisa:ICSA-26-043-09	1	0	boilerplate FP (zero distinctive overlap; auto-flagged)
+2026-07-24T16:48:15	q041	cisa:ICSA-26-092-03	1	0	boilerplate FP (zero distinctive overlap; auto-flagged)
+2026-07-24T16:48:15	q041	cisa:ICSA-26-111-11	1	0	boilerplate FP (zero distinctive overlap; auto-flagged)
+2026-07-24T16:48:15	q041	cisa:ICSA-26-141-01	1	0	boilerplate FP (zero distinctive overlap; auto-flagged)
+2026-07-24T16:48:15	q041	cisa:ICSA-26-148-03	1	0	boilerplate FP (zero distinctive overlap; auto-flagged)
+2026-07-24T16:48:15	q041	cisa:ICSA-26-188-02	1	0	boilerplate FP (zero distinctive overlap; auto-flagged)
+2026-07-24T16:48:15	q041	cisa:ICSA-26-188-03	1	0	boilerplate FP (zero distinctive overlap; auto-flagged)
+2026-07-24T00:00:00	q003	cisa:ICSA-26-202-09	1	2	seed; 1734 POINT I/O module + CWE-770 resource-exhaustion DoS — matches both axes
+2026-07-24T00:00:00	q003	cisa:ICSA-23-236-06	1	2	Rockwell Distributed I/O Comms Modules + CWE-787 malformed-packet DoS — closest analog
+2026-07-24T00:00:00	q003	nist-800-82r3:5.1.2	1	2	Defense-in-Depth Strategy — directly answers the query concept
+2026-07-24T00:00:00	q003	nist-800-82r3:5	1	2	OT Cybersecurity Architecture — core defense substrate
+2026-07-24T00:00:00	q003	nist-800-82r3:0	1	0	Executive Summary — generic boilerplate, not answer-bearing
+2026-07-24T00:00:00	q003	cisa:ICSA-21-189-01	2	0	MicroLogix 1100 PLC, not a discrete I/O module (over-weighted)
+2026-07-24T00:00:00	q003	cisa:ICSA-26-120-01	2	0	ABB 800xA DCS/IEC 61850 station, not an I/O module
+2026-07-24T00:00:00	q003	cisa:ICSA-21-033-01	1	0	MicroLogix 1400 PLC, not an I/O module
+2026-07-24T00:00:00	q003	cisa:ICSA-21-047-02	1	0	MicroLogix 1100 PLC, not an I/O module
+2026-07-24T00:00:00	q003	cisa:ICSA-22-139-01	1	0	MELSEC iQ-F PLC, not an I/O module
+2026-07-24T00:00:00	q003	cisa:ICSA-22-172-02	1	0	JTEKT TOYOPUC PLC, not an I/O module
+2026-07-24T00:00:00	q003	cisa:ICSA-23-068-05	1	0	Hitachi Relion protection relay (power sector), not manufacturing I/O module
+2026-07-24T00:00:00	q003	cisa:ICSA-23-089-01	1	0	Hitachi IEC 61850 MMS-Server, not an I/O module
+2026-07-24T00:00:00	q003	cisa:ICSA-24-018-01	1	0	AVEVA PI Server (historian), not an I/O module
+2026-07-24T00:00:00	q003	cisa:ICSA-24-130-01	1	0	FactoryTalk Historian SE (server), not an I/O module
+2026-07-24T00:00:00	q003	cisa:ICSA-25-035-06	1	0	Schneider Modicon M340 PLC/comms; CWE-200 info exposure (wrong component + vuln)
+2026-07-24T00:00:00	q003	cisa:ICSA-25-133-02	1	0	Hitachi Relion relay, not a manufacturing I/O module
+2026-07-24T00:00:00	q003	cisa:ICSA-25-182-06	1	0	Hitachi Relion relay, not a manufacturing I/O module
+2026-07-24T00:00:00	q003	cisa:ICSA-25-352-07	1	0	Rockwell Micro8x0 micro-PLC, not an I/O module
+2026-07-24T00:00:00	q003	cisa:ICSA-26-132-05	1	0	ABB AC500 V3 PLC, not an I/O module
+2026-07-24T00:00:00	q003	cisa:ICSA-26-167-04	1	0	Rockwell CompactLogix PLC, not an I/O module
+2026-07-24T00:00:00	q003	cisa:ICSA-26-188-03	1	0	Hitachi e-mesh EMS software, not an I/O module
+2026-07-24T00:00:00	q003	cisa:ICSA-22-256-02	1	0	Honeywell SoftMaster; CWE-427/732 DLL/permissions — neither DoS nor message-handling
+2026-07-24T00:00:00	q003	cisa:ICSA-24-116-02	1	0	Hitachi MACH SCM; CWE-94/95 code injection — wrong vuln class
+2026-07-24T00:00:00	q003	cisa:ICSA-26-176-06	1	0	Delta DTM Soft; CWE-502 deserialization RCE — wrong vuln class
+2026-07-24T00:00:00	q003	cisa:ICSA-25-065-02	1	0	Hitachi Relion; CWE-274 privilege — wrong component + vuln
+2026-07-24T00:00:00	q003	cisa:ICSA-25-160-02	1	0	Hitachi Relion; CWE-203 side-channel info-leak — wrong vuln class
+2026-07-24T00:00:00	q003	cisa:ICSA-26-036-05	1	0	Hitachi XMC20 telecom; CWE-924 side-channel info-leak — wrong component + vuln
+2026-07-24T00:00:00	q003	cisa:ICSA-26-141-01	1	0	Hitachi GMS600; CWE-203 side-channel info-leak — wrong vuln class
+2026-07-24T21:58:50	q004	nist-800-82r3:159	2	0	CIPAC is a DHS-established advisory council, not a CISA-hosted working group; no ICS scope — topical neighbor, not answer-bearing
+2026-07-24T21:58:50	q004	nist-800-82r3:193	1	0	HSIN-CI is a DHS information-sharing network, not a working group; no ICS scope — topical neighbor
+2026-07-24T22:39:45	q017	nist-800-82r3:263	1	2	F.7.7 OT Overlay IA control family: IA-2(1)/(2) are the MFA controls, IA-2(8) replay-resistant counters sniffing, and 22 OT Discussion blocks + 8 compensating-control passages answer the operational-constraints half — most authoritative answer in corpus
+2026-07-24T22:39:45	q017	nist-800-82r3:6.2.1.4.3	2	1	Smart Card is a component factor of the MFA answer, not the approach itself; graded consistently with sibling factor sections 6.2.1.4.2 (biometric) and 6.2.1.4.5 (password) at rel=1
+2026-07-24T22:39:45	q017	cisa:ICSA-13-011-03	1	0	51k-char ControlLogix advisory; 43 hits on bare word 'authentication' (auth-bypass CVEs) but zero on multi-factor/smart card/biometric/two-factor/sniff — lexical FP
+2026-07-24T22:39:45	q017	mitre-ics:M0931	1	0	Network Intrusion Prevention is not an authentication control and its Addresses-techniques list is disjoint from T0842/T0859
+2026-07-24T22:39:45	q017	nist-800-82r3:0	1	0	Executive Summary — generic boilerplate, not answer-bearing
+2026-07-24T22:39:45	q017	nist-800-82r3:5.1.2	1	0	Defense-in-Depth Strategy — general strategy, not an authentication approach
+2026-07-24T23:38:40	q075	cisa:ICSA-24-116-02	1	0	vendor boilerplate FP: contains only the sentence 'Portable computers and removable storage media should be carefully scanned for viruses before they are connected to a control system', which appears verbatim in 100 of 3829 CISA advisories - zero distinctive overlap with the query
+2026-07-24T23:38:40	q075	cisa:ICSA-24-331-05	1	0	vendor boilerplate FP: contains only the sentence 'Portable computers and removable storage media should be carefully scanned for viruses before they are connected to a control system', which appears verbatim in 100 of 3829 CISA advisories - zero distinctive overlap with the query
+2026-07-24T23:38:40	q075	cisa:ICSA-25-016-06	1	0	vendor boilerplate FP: contains only the sentence 'Portable computers and removable storage media should be carefully scanned for viruses before they are connected to a control system', which appears verbatim in 100 of 3829 CISA advisories - zero distinctive overlap with the query
+2026-07-24T23:38:40	q075	cisa:ICSA-25-063-04	1	0	vendor boilerplate FP: contains only the sentence 'Portable computers and removable storage media should be carefully scanned for viruses before they are connected to a control system', which appears verbatim in 100 of 3829 CISA advisories - zero distinctive overlap with the query
+2026-07-24T23:38:40	q075	cisa:ICSA-25-133-02	1	0	vendor boilerplate FP: contains only the sentence 'Portable computers and removable storage media should be carefully scanned for viruses before they are connected to a control system', which appears verbatim in 100 of 3829 CISA advisories - zero distinctive overlap with the query
+2026-07-24T23:38:40	q075	cisa:ICSA-25-182-06	1	0	vendor boilerplate FP: contains only the sentence 'Portable computers and removable storage media should be carefully scanned for viruses before they are connected to a control system', which appears verbatim in 100 of 3829 CISA advisories - zero distinctive overlap with the query
+2026-07-24T23:38:40	q075	cisa:ICSA-25-184-01	1	0	vendor boilerplate FP: contains only the sentence 'Portable computers and removable storage media should be carefully scanned for viruses before they are connected to a control system', which appears verbatim in 100 of 3829 CISA advisories - zero distinctive overlap with the query
+2026-07-24T23:38:40	q075	cisa:ICSA-25-261-04	1	0	vendor boilerplate FP: contains only the sentence 'Portable computers and removable storage media should be carefully scanned for viruses before they are connected to a control system', which appears verbatim in 100 of 3829 CISA advisories - zero distinctive overlap with the query
+2026-07-24T23:38:40	q075	cisa:ICSA-25-282-01	1	0	vendor boilerplate FP: contains only the sentence 'Portable computers and removable storage media should be carefully scanned for viruses before they are connected to a control system', which appears verbatim in 100 of 3829 CISA advisories - zero distinctive overlap with the query
+2026-07-24T23:38:40	q075	cisa:ICSA-26-043-09	1	0	vendor boilerplate FP: contains only the sentence 'Portable computers and removable storage media should be carefully scanned for viruses before they are connected to a control system', which appears verbatim in 100 of 3829 CISA advisories - zero distinctive overlap with the query
+2026-07-24T23:38:40	q075	cisa:ICSA-26-062-02	1	0	vendor boilerplate FP: contains only the sentence 'Portable computers and removable storage media should be carefully scanned for viruses before they are connected to a control system', which appears verbatim in 100 of 3829 CISA advisories - zero distinctive overlap with the query
+2026-07-24T23:38:40	q075	cisa:ICSA-26-125-01	1	0	vendor boilerplate FP: contains only the sentence 'Portable computers and removable storage media should be carefully scanned for viruses before they are connected to a control system', which appears verbatim in 100 of 3829 CISA advisories - zero distinctive overlap with the query
+2026-07-24T23:38:40	q075	cisa:ICSA-26-148-03	1	0	vendor boilerplate FP: contains only the sentence 'Portable computers and removable storage media should be carefully scanned for viruses before they are connected to a control system', which appears verbatim in 100 of 3829 CISA advisories - zero distinctive overlap with the query
+2026-07-24T23:38:40	q075	nist-800-82r3:5.1	1	0	Cybersecurity Strategy - generic strategy section, no removable-media or hardening content relevant to this query
+2026-07-24T23:38:40	q075	mitre-ics:T0895	-	2	HUMAN-ADDED pool-hole patch (approved): absent from bge-base/e5-base/bm25 top-50, so cannot bias toward any system. Autorun Image states the actual countermeasure - 'AutoRun or AutoPlay are disabled in many operating systems configurations to mitigate against this technique' - and is co-addressed with T0847 by seed M0928
+2026-07-25T00:03:08	q075	mitre-ics:T0895	2	-	REVERTED human-added out-of-pool row (row removed, not set to 0, since rel=0 would falsely assert 'judged non-relevant'). Restores pool-derived provenance parity with the other 60 queries; the recall gap is documented as a known hole instead of patched.
+2026-07-25T00:08:17	q006	cisa:ICSA-19-225-03	1	2	seed under-graded: unique doc with telnet+DoS+switch+SCALANCE; answers the first half of the query
+2026-07-25T00:08:17	q006	nist-800-82r3:257	1	2	F.7.1 ACCESS CONTROL - AC family (70 AC- refs); the direct answer to how access-control measures align with NIST guidance
+2026-07-25T00:08:17	q006	nist-800-82r3:276	1	0	Appendix G Change Log - 726-char revision changelog, zero topical signal
+2026-07-25T00:08:17	q006	nist-800-82r3:0	1	0	Executive Summary - generic boilerplate
+2026-07-25T00:08:17	q006	nist-800-82r3:253	1	0	F.4 Tailoring Considerations - generic overlay preamble, zero signal
+2026-07-25T00:08:17	q006	nist-800-82r3:4.3.3	1	0	RMF Select step - generic, no segmentation/access-control/DoS content
+2026-07-25T00:08:17	q006	nist-800-82r3:4.3.7	1	0	RMF Monitor step - generic
+2026-07-25T00:08:17	q006	nist-800-82r3:5.4.3	1	0	SCADA-Based OT Environments - zero signal; query is not SCADA-specific
+2026-07-25T00:08:17	q006	nist-800-82r3:263	1	0	F.7.7 IA family - wrong control family; query asks access control (AC = nist:257), not authentication
+2026-07-25T00:08:17	q006	cisa:ICSA-25-065-02	1	0	Hitachi Relion; vendor-boilerplate cluster, no telnet/switch/segmentation relevance
+2026-07-25T00:08:17	q006	cisa:ICSA-26-141-01	1	0	Hitachi GMS600; vendor-boilerplate cluster, no relevance to telnet DoS on switches
+2026-07-25T00:08:17	q006	cisa:ICSA-25-182-06	1	0	Hitachi Relion; DoS is unrelated to telnet or industrial switches
+2026-07-25T00:08:17	q006	cisa:ICSA-25-254-06	1	0	Siemens Industrial Edge Management is software, not an industrial switch, and has no telnet vector
+2026-07-25T00:28:00	q075	(all)	-	-	ALL 41 JUDGMENTS REVERTED: produced via inherited Claude Code session credentials (ANTHROPIC_BASE_URL present, no explicit ANTHROPIC_API_KEY) and with claude-sonnet-5 rather than the corpus-wide judge model. The 15 q075 relabel entries above therefore refer to rows that no longer exist; retained as audit history. Re-judge via the free route: scripts/cc_judge_export.py -> subagents -> scripts/cc_judge_ingest.py

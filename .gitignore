@@ -1,0 +1,58 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+
+# Raw corpus: large + redistribution nuance. Reproducible via scripts/pull_corpus.py.
+# We commit the normalized, derived corpus and the manifests, not the multi-hundred-MB raw dumps.
+corpus/raw/cisa/advisories/
+corpus/raw/nist/*.pdf
+corpus/raw/mitre/*.json
+
+# IEC 62443 licensed content is never committed (also guarded by its own .gitignore).
+corpus/raw/iec62443/*
+!corpus/raw/iec62443/.gitignore
+!corpus/raw/iec62443/README.md
+!corpus/raw/iec62443/manifest.template.json
+
+# Dragos WorldView licensed intelligence is never committed (also guarded by its own .gitignore).
+corpus/raw/dragos/*
+!corpus/raw/dragos/.gitignore
+!corpus/raw/dragos/README.md
+!corpus/raw/dragos/manifest.template.json
+
+# Derived, regenerable artifacts (rebuild: chunk.run / index.build).
+# The normalized corpus IS committed (22 MB) so the pipeline runs without re-pulling raw.
+corpus/chunks/
+corpus/index/
+
+# Local-augmented corpus/stats (produced when a licensed local-only source contributes,
+# e.g. IEC 62443 or Dragos). Never committed — keeps the public corpus reproducible.
+corpus/normalized/*.local.jsonl
+corpus/normalized/stats.local.json
+# Chunks derived from the local-augmented corpus (contain licensed content).
+corpus/chunks_local/
+# Gold set seeded from the local-augmented corpus references licensed doc_ids — never
+# committed. The public gold set (corpus/goldset/) IS the committed artifact.
+corpus/goldset_local/
+
+# Secrets
+.env
+.env.local
+
+# Scored output. `eval.run` writes this on every run, including exploratory ones over
+# unverified queries; only a `--only-verified` table belongs in the repo. Kept out of git
+# so a scratch run can never be mistaken for the published benchmark.
+corpus/goldset/results.json
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/
+
+# Private working notes (agent orientation, scratch status).
+notes.md
+CLAUDE.md

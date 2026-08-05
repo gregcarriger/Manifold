@@ -13,12 +13,19 @@ guidance wrong.
 
 > Status: **active build — truthseeking, not yet benchmarked.** The full pipeline
 > (ingest → chunk → index → retrieve, plus grounded generation and the metrics harness) is
-> built and unit-tested. **No benchmark numbers are published yet:** the public gold set has
-> not been run, so there is no results table below the fold — only the harness that will
-> produce one. The only gold set on disk today is a small *local* draft (10 queries, built on
-> a local corpus that includes a licensed source, ~4 verified) — not the public artifact.
+> built and unit-tested. **No benchmark numbers are published yet:** there is no results
+> table below the fold — only the harness that will produce one.
+>
+> A **public gold-set draft now exists and is mid human-verification**: 76 queries
+> (30 lookup / 15 multi-hop / 16 synthesis / 15 unanswerable), pooled across a 3-system fleet
+> and judged into **2,075 relevance judgments** (147 rel=2, 851 rel=1, 1,077 explicit rel=0).
+> Human review is the bottleneck and the honest number is small: **6 of 61 answerable queries
+> verified, 3 rejected** (target ≥50). Verification is turning up substantial judge
+> over-labelling — 93 logged grade corrections so far — so treat the unverified rows as drafts,
+> not ground truth. `eval.run` scores `verified` queries only, so no table can be produced yet.
 > Phase 6 (safety-weighted groundedness) is designed but not implemented. See
-> [ROADMAP.md](ROADMAP.md) for exact per-phase status and known limitations.
+> [ROADMAP.md](ROADMAP.md) for per-phase status and [POOLING.md](POOLING.md) for gold-set
+> methodology, pool depth, and known recall holes.
 
 ## The corpus (public + copyright-clean)
 
@@ -36,8 +43,9 @@ guidance wrong.
 
 1. **The first public OT/ICS *retrieval* gold set** — BEIR/TREC-compatible qrels with
    recall@k / precision@k / MRR / nDCG, including unanswerable / out-of-corpus queries.
-   *Status: the generator + metrics harness are built and tested; the public gold set has
-   not been drafted or human-verified yet, so no qrels or numbers are published.*
+   *Status: the generator + metrics harness are built and tested. A 76-query public gold set
+   is drafted and pooled (2,075 judgments committed), but human verification is only 6/61
+   answerable queries in, so no numbers are published yet.*
 2. **Safety-weighted, human-calibrated groundedness** — wrong OT guidance is dangerous, so
    faithfulness is weighted by claim severity and calibrated against human labels. *Status:
    Phase 6, designed but not built. Today only a lightweight cited-fraction / abstention
@@ -58,10 +66,13 @@ guidance wrong.
 ## Architecture
 
 ```mermaid
-%%{init: {'flowchart': {'rankSpacing': 25}}}%%
 flowchart LR
     subgraph Sources
-      N[NIST SP 800-82r3] ~~~ C[CISA ICS advisories] ~~~ M[MITRE ATT&CK ICS] ~~~ I[IEC 62443 - licensed, optional]
+      direction TB
+      N[NIST SP 800-82r3]
+      C[CISA ICS advisories]
+      M[MITRE ATT&CK ICS]
+      I[IEC 62443 - licensed, optional]
     end
     Sources --> ING[Ingest + normalize<br/>unified Document schema]
     ING --> CH[Chunking<br/>fixed vs structure-aware]
@@ -107,6 +118,18 @@ The judge does hundreds of cheap 0/1/2 relevance calls that a human verifies any
 Haiku is a fine choice there; reserve Opus/Sonnet for the visible generation and a final
 calibration subset.
 
+**No API key? Judge for $0.** `scripts/cc_judge_export.py` writes one task file per unjudged
+query; Claude Code subagents grade them on the session's own auth; `scripts/cc_judge_ingest.py`
+validates and merges the grades back into `qrels.tsv`. Same 0/1/2 grades, same output, no spend.
+
+**Credential guard.** The LLM stages refuse to run when no `ANTHROPIC_API_KEY` is set *but*
+Claude Code / gateway credentials (`ANTHROPIC_BASE_URL`, `ANTHROPIC_AUTH_TOKEN`, `CLAUDECODE`)
+are present in the environment — because `anthropic.Anthropic()` would silently spend the
+account behind the session and stamp the artifact with judgments nobody can reproduce from a
+clean checkout. See [`src/manifold/llm.py`](src/manifold/llm.py). Override deliberately with
+`--allow-session-auth` (or `MANIFOLD_ALLOW_SESSION_AUTH=1`), which warns loudly; prefer the
+free judge route above.
+
 ## Related work — and how Manifold stays in its lane
 
 - **[Interlock](https://github.com/gregcarriger/Interlock)** — a red-team harness and
@@ -128,16 +151,38 @@ calibration subset.
 These are real, current constraints — documented rather than hidden, per the project's
 truthseeking stance. Several are tracked as work items in [ROADMAP.md](ROADMAP.md).
 
-- **No published results.** `corpus/goldset/` and `corpus/answers/` are empty; no
-  `results.json` exists. The benchmark table this project is *about* has not been produced.
-- **Gold-set pooling bias — addressed in code, not yet run at scale.** A single-retriever
+- **No published results.** `corpus/goldset/` now holds a drafted, pooled, judged gold set
+  (`queries.jsonl`, `qrels.tsv`, `pool.json`, `pool_runs.json`, `REVIEW.md`, `relabel_log.tsv`),
+  but `corpus/answers/` is empty and no `results.json` exists. `eval.run` scores only `verified`
+  queries (6 of 61), so the benchmark table this project is *about* has not been produced.
+- **The draft judge was `claude-haiku-4-5` with adaptive thinking disabled.** Haiku was a
+  deliberate cost choice (judging is self-funded), but `generate.py` drops the
+  adaptive-thinking parameter for Haiku because the model rejects it — so all 2,075 draft grades
+  came from the cheapest judge without its judgment-sharpening feature, which plausibly explains
+  much of the over-labelling below. Provenance, including reverted batches, is recorded in
+  [`corpus/goldset/PROVENANCE.md`](corpus/goldset/PROVENANCE.md).
+- **The gold set is the bottleneck, and the judge over-labels.** Human review of the drafted
+  qrels is finding systematic false positives, chiefly CISA advisories whose only tie to a query
+  is boilerplate. One vendor sentence — "Portable computers and removable storage media should
+  be carefully scanned for viruses before they are connected to a control system" — appears
+  verbatim in **63 advisories** and made every one of them look relevant to any removable-media
+  query. `scripts/scan_suspect_labels.py` flags these automatically; corrections go through
+  `scripts/relabel_doc.py` into an append-only `relabel_log.tsv` (93 edits so far). Two of nine
+  reviewed queries were rejected outright as unanswerable-as-posed rather than relabelled.
+- **Gold-set pooling bias — addressed in code and now run, but shallow.** A single-retriever
   gold set lets a document no retriever surfaces stay unjudged (scored non-relevant) and
-  structurally favors the retriever that built it. The fix is now built: depth-_k_ pooling
-  across a diverse retriever fleet (BGE/E5/GTE/Nomic/Arctic + BM25, optional reranker/anchor)
-  via `scripts/build_pool.py`, a staged `queries → pool → judge` drafter, and bias-robust
-  reporting (bpref, judged@k pool coverage, leave-one-out) in `eval.run`. The ≥50-query public
-  pool has **not been built or verified yet** (needs the model downloads + judge key), so there
-  are still no published qrels. Methodology + commands: [POOLING.md](POOLING.md).
+  structurally favors the retriever that built it. The fix is built and has been executed:
+  depth-_k_ pooling across a diverse retriever fleet via `scripts/build_pool.py`, a staged
+  `queries → pool → judge` drafter, and bias-robust reporting (bpref, judged@k pool coverage,
+  leave-one-out) in `eval.run`. **The committed pool is depth 15 over 3 systems** (bge-base,
+  e5-base, bm25), mean 34.4 docs/query — deliberately shallow, because judging cost is bounded
+  by a single self-funded API account. Per-system runs are cached to depth 50, so the pool can be
+  deepened without re-encoding.
+  **This shallowness demonstrably costs recall:** for one query, `nist-800-82r3:6.2.8`
+  ("Personnel Security") was ranked by *all three* systems (28/46/49) and excluded purely by the
+  depth-15 cutoff. Two further answer-bearing docs are absent even at depth 50. Known holes are
+  documented rather than hand-patched — adding a qrel no system retrieved would break pool-
+  coverage accounting. Methodology, depth rationale, and the hole list: [POOLING.md](POOLING.md).
 - **Doc-level qrels blunt the chunking comparison.** Collapsing chunk rankings to parent docs
   makes one gold set fair across strategies, but means the metric cannot reward a chunk that
   *pinpoints* the right passage over a blob that merely *contains* it — which is the whole

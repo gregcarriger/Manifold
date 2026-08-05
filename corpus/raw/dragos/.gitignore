@@ -1,0 +1,7 @@
+# Dragos WorldView is proprietary, licensed threat intelligence.
+# Licensed copies (report PDFs, STIX bundles, IOC CSVs, threat-group and
+# vulnerability exports) may be dropped here locally but MUST NOT be committed.
+*
+!.gitignore
+!README.md
+!manifest.template.json
